@@ -3,16 +3,14 @@ import { BiPhone } from "react-icons/bi";
 import { BiTimeFive } from "react-icons/bi";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { LuCalendarDays } from "react-icons/lu";
-
 const Card = ({ name, imageSrc, address, day, time, contact, }) => {
     return (
         <div className="card">
-            <div className='flex flex-col realative h-auto rounded-[10px] shadow-lg w-[380px] md:w-[400px] bg-white'>
+            <div className='flex flex-col realative h-auto rounded-[10px] shadow-lg w-[390px] md:w-[400px] bg-white overflow-hidden'>
                 <div className='w-100%'>
-                    <img src={imageSrc} alt='StoreImage' className='rounded-tl-[10px] rounded-tr-[10px] bg-cover bg-center' />
+                    <img src={imageSrc} alt='StoreImage' className='rounded-tl-[10px] rounded-tr-[10px] bg-cover bg-center  transition-transform duration-300 transform hover:scale-105 ' />
                 </div>
-
-                <div className='card-content text-start mx-2 md:mx-6 mt-2 mb-4'>
+                <div className='text-start mx-2 md:mx-6 mt-2 mb-4'>
                     <h1 className='text-[28px] font-semibold'>{name}</h1>
                     <div className=' text-gray-600 text-[14px] mt-3'>
                         <p className='flex gap-[2px]'><MdOutlineLocationOn className='  mt-[2px] w-[18px] h-[18px]' />{address}
@@ -25,14 +23,10 @@ const Card = ({ name, imageSrc, address, day, time, contact, }) => {
                             <p className='flex gap-1'><BiPhone className=' mt-[11px]' />{contact}</p>
                         </div>
                     </div>
-                    <button className=' mt-2 md:mt-1 px-6 pt-[7px] pb-[9px] text-[12px] bg-gray-900 hover:bg-gray-700 text-white rounded-md'>Directions</button>
+                    <button className=' mt-2 md:mt-1 px-6 pt-[7px] pb-[9px] text-[12px] bg-gray-900 hover:bg-gray-700 text-white font-semibold rounded-md'>Directions</button>
                 </div>
             </div>
-
         </div>
-
-
     );
 };
-
 export default Card;

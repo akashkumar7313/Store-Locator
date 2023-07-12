@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DynamicCard from './Card';
-import image1 from './assets/R094.jpeg'
+import image1 from './assets/R094.jpeg' 
 import image2 from './assets/R144.jpg'
 import image3 from './assets/R169.jpeg'
 import image4 from './assets/R214.jpg'
