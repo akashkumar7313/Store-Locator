@@ -19,14 +19,19 @@ const storeSchema = new mongoose.Schema({
         required: [true]
     },
     time: {
-        type: Number,
+        type: String,
         required: [true]
     },
     contact: {
         type: Number,
         required: [true]
-    },  
-});
+    }, 
+     
+},{
+    timestamps: true,
+    get: time => time.toDateString()
+ }
+);
 
 const store =  mongoose.model("store", storeSchema)
 

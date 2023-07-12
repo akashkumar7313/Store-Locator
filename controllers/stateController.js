@@ -26,7 +26,7 @@ exports.getState = async (req, res) => {
         const states = await State.find().populate('cities');
         res.status(200).json({
             success: true,
-            message: 'States retrieved successfully',
+            message: 'State retrieved successfully',
             states
         })
     } catch (error) {
