@@ -6,9 +6,6 @@ const SearchDetail = () => {
   
   const handleStateChange = (event) => {
     const state_id = event.target.value;
-    // setSelectedState(stateName);
-    // const selectedState = data.states.find((state) => state.name === stateName);
-    // setCities(selectedState ? selectedState.cities : []);
     axios.get('http://localhost:4001/get/get_cities/'+state_id).then((res)=> {
       setCities(res.data.cities)
     }).catch((error)=> {
