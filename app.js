@@ -25,13 +25,13 @@ app.use((req, res, next) => {
 const storeroute = require('./routes/storeRoutes')
 app.use('/', storeroute);
 
-// // city routes
-// const cityroute = require('./routes/cityRoutes')
-// app.use('/', cityroute);
+// city routes
+const cityroute = require('./routes/cityRoutes')
+app.use('/', cityroute);
 
-// // state routes
-// const stateroute = require('./routes/stateRoutes')
-// app.use('/', stateroute);
+// state routes
+const stateroute = require('./routes/stateRoutes')
+app.use('/', stateroute);
 
 
 app.get('/', (request, response) => {

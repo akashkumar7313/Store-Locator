@@ -56,7 +56,6 @@ const App = () => {
 
             let res = await fetch('http://localhost:4001/get/allstore')
             let data = await res.json();
-            console.log(data.stores)
             setStores(data.stores)
         }
 

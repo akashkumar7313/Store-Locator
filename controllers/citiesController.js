@@ -3,12 +3,12 @@
 // Import necessary modules and models
 const City = require('../models/cities');
 
-// Create a new city
+// !Create a new city
 const createCity = async (req, res) => {
     try {
         const city = await City.create({
-            city_id: req.body.city_id,
             city_name: req.body.city_name,
+            stores: req.body.stores,
         });
 
         return res.status(201).json({
@@ -29,7 +29,7 @@ const createCity = async (req, res) => {
 // Retrieve all cities
 const getCity = async (req, res) => {
     try {
-        const cities = await City.find();
+        const cities = await City.find().populate('stores');
         return res.status(200).json({
             success: true,
             message: "Cities Retrive Successfully",

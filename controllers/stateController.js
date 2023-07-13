@@ -5,11 +5,11 @@ const State = require('../models/state');
 exports.createState = async (req, res) => {
     try {
         const state = await State.create(req.body);
-            res.status(201).json()({
-            success: true,
-            message: "State created Successfully",
-            state
-        })
+            res.status(201).json({
+                success: true,
+                message: "State created Successfully",
+                state
+            });
     } catch (error) {
         console.log(error);
         res.status(400).json({
@@ -47,6 +47,24 @@ exports.updateStateById = async (req, res) => {
             success: true,
             message: "State updated successfully",
             state
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        })
+    }
+}
+
+// get cities
+exports.getCitiesOfState = async (req, res) => {
+    try {
+        const state = await State.findById(req.params.id).populate('cities');
+        res.status(200).json({
+            success: true,
+            message: "State updated successfully",
+            cities: state.cities,
         })
     } catch (error) {
         console.log(error);
