@@ -42,7 +42,7 @@ exports.getStore = async (req, res) => {
 // read store by id
 exports.getStoreById = async (req, res) => {
     try {
-        const store = await Store.findById(req.params.id);;
+        const store = await Store.findById(req.params.id).populate('stores');
         res.status(200).json({
             success: true,
             message: 'Store find successfully',

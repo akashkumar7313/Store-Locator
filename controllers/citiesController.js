@@ -45,6 +45,24 @@ const getCity = async (req, res) => {
     }
 };
 
+// get stores
+const getstoresOfcity = async (req, res) => {
+    try {
+        const city = await City.findById(req.params.id).populate('stores');
+        res.status(200).json({
+            success: true,
+            message: "State updated successfully",
+            stores: city.stores,
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        })
+    }
+}
+
 
 // Update a city by ID
 const updateCityById = async (req, res) => {
@@ -91,6 +109,7 @@ module.exports = {
     getCity,
     updateCityById,
     deleteCity,
+    getstoresOfcity,
 };
 
 

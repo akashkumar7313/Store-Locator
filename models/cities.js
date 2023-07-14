@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 
 // City schema information
 const citySchema = new mongoose.Schema({
-    city_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'state'
-    },
     city_name: {
         type: String,
         required: [true],
@@ -14,7 +10,11 @@ const citySchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'store'
     }],
-});
+},{
+    timestamps: true,
+    get: time => time.toDateString()
+ }
+);
 
 const cities = mongoose.model("citie", citySchema);
 
