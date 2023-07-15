@@ -6,9 +6,9 @@ import { LuCalendarDays } from "react-icons/lu";
 const Card = ({ name, imageSrc, address, day, time, contact, }) => {
     return (
         <div className="card">
-            <div className='flex flex-col realative h-auto rounded-[10px] shadow-lg w-[390px] md:w-[400px] bg-white overflow-hidden'>
-                <div className='w-100%'>
-                    <img src={imageSrc} alt='StoreImage' className='rounded-tl-[10px] rounded-tr-[10px] bg-cover bg-center  transition-transform duration-300 transform hover:scale-105 ' />
+            <div className='lg:flex-col h-auto md:h-auto lg:h-auto rounded-[10px] shadow-lg w-[390px] md:w-[600px] lg:w-[400px] bg-white overflow-hidden'>
+                <div className=''>
+                    <img src={imageSrc} alt='StoreImage' className=' md:bg-no-repeat md:bg-center rounded-tl-[10px] rounded-tr-[10px] lg:bg-cover lg:bg-center  transition-transform duration-300 transform hover:scale-105 ' />
                 </div>
                 <div className='text-start mx-2 md:mx-6 mt-2 mb-4'>
                     <h1 className='text-[28px] font-semibold'>{name}</h1>
