@@ -4,22 +4,53 @@ const Store = require('../models/store');
 // Create store
 exports.createStore = async (req, res) => {
     try {
-        const store = await Store.create(req.body);
-        res.status(201).json({
-            success: true,
-            message: "Store created Successfully",
-            store
-        })
+      const { name, address, contact } = req.body;
+  
+      // Check if store with the same name already exists
+      const existingStoreName = await Store.findOne({ name: name });
 
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({
-            success: false,
-            message: error.message,
-        })
+    if (existingStoreName) {
+      return res.status(400).json({
+        success: false,
+        message: "Store name can't be same as existing store name",
+      });
     }
-};
 
+    // Check if Address is already used by any existing store
+    const existingStoreAddress = await Store.findOne({ address: address });
+
+    if (existingStoreAddress) {
+      return res.status(400).json({
+        success: false,
+        message: "Address can't be same as exiting store address ",
+      });
+    }
+
+    // Check if contact is already used by any existing store
+    const existingStoreContact = await Store.findOne({ contact: contact });
+
+    if (existingStoreContact) {
+      return res.status(400).json({
+        success: false,
+        message: "Contact must be unique",
+      });
+    }
+  
+      const store = await Store.create(req.body);
+      res.status(201).json({
+        success: true,
+        message: "Store created successfully",
+        store,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
+  
 
 // Read store
 exports.getStore = async (req, res) => {
